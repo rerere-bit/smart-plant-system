@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plant Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+    
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="title-wrap">
+                <h1>Smart Plant <span>System</span></h1>
+                <p>Realtime IoT Telemetry & Controls</p>
+            </div>
+            <div class="status-badge connecting" id="conn-status">
+                <i class='bx bx-wifi'></i> <span id="conn-text">Connecting...</span>
+            </div>
+        </header>
+
+        <section class="telemetry-grid">
+            <!-- Soil Moisture Card -->
+            <div class="card glass-effect param-card">
+                <div class="card-icon" style="color: #4ade80;">
+                    <i class='bx bxs-tree'></i>
+                </div>
+                <div class="card-info">
+                    <h3>Kelembapan Tanah</h3>
+                    <div class="value-wrap">
+                        <span class="value" id="val-moisture">--</span>
+                        <span class="unit">ADC</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="bar-moisture" style="width: 0%; background: #4ade80;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Level Card -->
+            <div class="card glass-effect param-card">
+                <div class="card-icon" style="color: #60a5fa;">
+                    <i class='bx bxs-droplet-half'></i>
+                </div>
+                <div class="card-info">
+                    <h3>Sisa Air Waduk</h3>
+                    <div class="value-wrap">
+                        <span class="value" id="val-water">--</span>
+                        <span class="unit">cm <span style="font-weight: 300; opacity: 0.6; font-size: 0.9rem;">/ 23 cm</span></span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="bar-water" style="width: 0%; background: #60a5fa;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temperature Status Card -->
+            <div class="card glass-effect param-card" id="card-temp">
+                <div class="card-icon" id="icon-temp" style="color: #ef4444;">
+                    <i class='bx bxs-thermometer'></i>
+                </div>
+                <div class="card-info">
+                    <h3>Suhu Udara</h3>
+                    <div class="value-wrap">
+                        <span class="value" id="val-temp">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="bar-temp" style="width: 0%; background: #ef4444;"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="controls-section glass-effect">
+            <h2 class="section-title"><i class='bx bx-slider-alt'></i> Panel Kendali</h2>
+            
+            <div class="control-actions">
+                <div class="control-item">
+                    <div class="control-text">
+                        <h4>Mode Otomatis</h4>
+                        <p>Biarkan asisten cerdas menyiram saat kering.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="control-item">
+                    <div class="control-text">
+                        <h4>Pompa Air Manual</h4>
+                        <p>Paksa pompa menyala sekarang juga.</p>
+                    </div>
+                    <button class="btn-pump" id="btn-pump" disabled>
+                        <i class='bx bx-power-off'></i> Siram Sekarang
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
